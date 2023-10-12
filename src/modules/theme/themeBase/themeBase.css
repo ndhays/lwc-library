@@ -1,0 +1,12 @@
+@import './a11y.css';
+
+@import './colors.css';
+@import './heading.css';
+@import './spacing.css';
+
+
+:host {
+  --font-h1: normal normal bold 2rem/2.5rem Helvetica, Arial, sans-serif;
+  --font-h2: normal normal bold 1.5rem/2rem Helvetica, Arial, sans-serif;
+  --font-h3: normal normal bold 1rem/1.5rem Helvetica, Arial, sans-serif;
+}

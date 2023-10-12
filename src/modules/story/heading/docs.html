@@ -1,0 +1,41 @@
+<template>
+
+  <div class="card include-theme">
+    <h2>Styleguide</h2>
+    <c-heading level="1">Heading Level 1</c-heading>
+    <c-heading level="2">Heading Level 2</c-heading>
+    <c-heading level="3">Heading Level 3</c-heading>
+    <c-heading level="4">Heading Level 4</c-heading>
+    <c-heading level="5">Heading Level 5</c-heading>
+    <c-heading level="6">Heading Level 6</c-heading>
+  </div>
+
+  <div class="card">
+    <h2>Usage</h2>
+    <p>Use this component when you need a dynamic heading / semantic level (for example, in a reusable component).</p>
+    <p>(Most of the time it is better to simply use a normal heading tag ie. <strong>&lt;h3&gt;</strong>.)</p>
+  </div>
+
+  <div class="card">
+    <h2>Accessibility</h2>
+    <p>The <strong>level</strong> property controls the&nbsp;
+      <a href="https://www.w3.org/WAI/tutorials/page-structure/headings/" target="_blank">
+        semantic heading level
+      </a>.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Custom Styling (Style vs. Semantics)</h2>
+    <p>Sometimes headings need to be one level (for accessibility and semantics), but need to be styled like another heading, or have custom styling altogether.</p>
+    <br/>
+    <c-heading level="3" class="h4 note">
+      For example, this is a semantic H3 styled like an H4
+    </c-heading>
+    <br/>
+    <code>
+      &lt;c-heading level="3" class="h4"&gt;
+    </code>
+  </div>
+    
+</template>

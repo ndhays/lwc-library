@@ -1,0 +1,4 @@
+:host(.no-transition) {
+  --link--transition-duration: 0ms;
+  --link--transition-property: none;
+}

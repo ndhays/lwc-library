@@ -1,0 +1,9 @@
+:host {
+  --accordion--border-color: var(--color-border-brand);
+  --accordion--content--background-color: var(--color-bg);
+  --accordion--content--padding: var(--spacing-medium);
+  --accordion--heading-font: var(--font-h3);
+  --accordion--item-gap: var(--spacing-small);
+  --accordion--toggle--background-color: var(--color-bg);
+  --accordion--toggle--padding: var(--spacing-medium);
+}

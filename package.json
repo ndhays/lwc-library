@@ -1,0 +1,36 @@
+{
+  "name": "lwr",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate:lwc": "bun ./scripts/add-cmp.js",
+    "generate:story": "bun ./scripts/add-story.js",
+    "build:css": "bun ./scripts/build-css.js",
+    "build:css:watch": "bun ./scripts/build-css-watch.js",
+    "clean": "rm -rf node_modules __lwr_cache__ site",
+    "dev": "lwr dev",
+    "dev:compat": "lwr dev --mode compat",
+    "build": "lwr build --clean",
+    "build:prod-compat": "lwr build --clean --mode prod-compat",
+    "start": "lwr start",
+    "stage": "yarn build && yarn start",
+    "stage:prod-compat": "yarn build:prod-compat && yarn start",
+    "tailwind": "tailwindcss -i ./tailwind.css -o ./src/modules/sb/storybookStyles/tailwind.css"
+  },
+  "dependencies": {
+    "lwc": "3.0.0",
+    "lwr": "0.10.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "volta": {
+    "node": "18.16.1"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.4.8",
+    "tailwindcss": "^3.3.3"
+  }
+}

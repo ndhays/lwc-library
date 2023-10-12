@@ -1,0 +1,16 @@
+<template>
+
+  <div class="list">
+    <template for:each={formattedItems} for:item="item">
+      <lwc:component
+        data-id="list-item"
+        exportparts={item.exportparts}
+        lwc:is={item.cmp}
+        lwc:spread={item.props}
+        key={item.key}
+        class={item.class}
+      ></lwc:component>
+    </template>
+  </div>
+
+</template>

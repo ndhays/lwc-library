@@ -1,0 +1,9 @@
+:host h3 {
+  font-weight: 900;
+  font-size: 3rem;
+}
+
+h3 span {
+  display: inline-block;
+  line-height: 1em;
+}

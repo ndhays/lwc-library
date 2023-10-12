@@ -1,0 +1,12 @@
+c-accordion.theme-microsoft {
+  --accordion--transition-duration: 0.1s;
+}
+
+c-accordion.theme-microsoft::part(content) {
+  background-color: var(--color-bg-inverse);
+  border: 0.25rem solid var(--color-text);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  color: var(--color-text-oninverse);
+  font-size: 1.5rem;
+}

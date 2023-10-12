@@ -1,0 +1,3 @@
+<template>
+  <h6><slot></slot></h6>
+</template>

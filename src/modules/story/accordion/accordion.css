@@ -1,0 +1,10 @@
+@import 'themed/accordion';
+
+.component {
+  display: block;
+}
+
+c-accordion {
+  display: block;
+  width: 100%;
+}

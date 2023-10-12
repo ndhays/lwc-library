@@ -1,0 +1,33 @@
+:host(.neutral) {
+  --badge--background-color: #6c757d;
+  --badge--border: 1px solid #6c757d;
+  --badge--color: #fff;
+}
+
+:host(.info) {
+  --badge--background-color: #17a2b8;
+  --badge--border: 1px solid #17a2b8;
+  --badge--color: #fff;
+}
+
+:host(.positive) {
+  --badge--background-color: #28a745;
+  --badge--border: 1px solid #28a745;
+  --badge--color: #fff;
+}
+
+:host(.negative) {
+  --badge--background-color: #dc3545;
+  --badge--border: 1px solid #dc3545;
+  --badge--color: #fff;
+}
+
+:host(.badge-xs) {
+  font-size: 0.625rem; /* px: 10 */
+  --badge--padding: 0.125rem 0.25rem;
+}
+
+:host(.badge-sm) {
+  font-size: 0.75rem;
+  --badge--padding: 0.25rem 0.5rem;
+}

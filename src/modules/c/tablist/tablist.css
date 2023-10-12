@@ -1,0 +1,9 @@
+@import 'c/stylesShared';
+
+.tablist-tabs {
+  display: flex;
+}
+
+a {
+  display: inline-block;
+}

@@ -1,0 +1,78 @@
+<template>
+  <div class="card">
+    <h2>Javascript Usage</h2>
+    <p>To connect to the "application" directly it is not necessary to use <strong>c-app-provider</strong> in a template.</p>
+    <br/>
+    <p>It can also be imported in Javascript using <strong>c/application</strong>:</p>
+    <br/>
+    <p><code>import &lcub; getApp &rcub; from 'c/application';</code></p>
+  </div>
+
+  <div class="card">
+    <h2>Configuring Channels</h2>
+    <p><strong>connectChannel</strong> (<em>String | String[], String</em>)</p>
+    <p>- the first argument is the channel name(s) - (or wildcard * for all existing channels)</p>
+    <p>- the second argument is the provider type</p>
+    <br/>
+    <p><code>getApp().connectChannel('getTodos', 'redux')</code></p>
+    <br/>
+    <p>For example, this connects the 'getTodos' channel with the redux provider type implementation.</p>
+    <p>This will automatically create a generic slice named <strong>getTodos</strong> with an <strong>update</strong> action.</p>
+    <br/>
+    <p><strong>Channels with the default "messagebus" provider type are automatically created if they do not exist.</strong></p>
+    <p><strong>Under the hood connecting a channel just changes the provider type of the channel (and reconfigures any existing subscriptions).</strong></p>
+  </div>
+
+  <div class="card">
+    <h2>Subscribing to Data</h2>
+    <p><strong>subscribeTo</strong> (<em>String | String[], Function</em>)</p>
+    <p>- the first argument is channel name(s)</p>
+    <p>- the second argument is a callback function</p>
+    <br/>
+    <p><strong>Note this returns an unsubscribe function that must be handled in a disconnectedCallback</strong>.</p>
+    <p>(The unsubscribe is handled automatically when using the <strong>c-app-provider</strong> interface)</p>
+  </div>
+
+  <div class="card">
+    <h2>Publishing Data Updates</h2>
+    <p><strong>publishTo</strong> (<em>String | String[], Object</em>)</p>
+    <p>- the first argument is channel name(s)</p>
+    <p>- the second argument is a message payload</p>
+    <br/>
+    <p>This is the default way to broadcast updates to a channel, but different provider types might provide additional functionality.</p>
+    <br/>
+    <p><strong>Each provider type can extend application functionality.</strong></p>
+  </div>
+
+  <div class="card">
+    <h2>Requesting Data</h2>
+    <p>Components can "request" data from their datasource.</p>
+    <br/>
+    <code>
+      <pre>
+      getApp().requestFrom('getTodos', &lcub;<br/>
+      &Tab;limit: 10,<br/>
+      &Tab;offset: 0<br/>
+      &rcub;);
+      </pre>
+    </code>
+    <br/><br/>
+    <p>Under the hood, this simply wraps the message in a "params" object and a "loading" = true and publishes a message <strong>on the same channel</strong>. A data provider somewhere else listens to the channel for the loading "true", and handles fetching the new data and publishing the response to the channel.</p>
+    <br/>
+    <h3>Why not just use <strong>fetch</strong> or a direct API call than using all of this complexity?</h3>
+    <p>Even though it might seem more complex at first than calling an API directly, the flux model provides numerous benefits by separating concerns.</p>
+    <br/>
+    <p>The state is manageable and predictable, and this in turn makes development, testing, and maintenance easier an more efficient.</p>
+  </div>
+
+  <div class="card">
+    <h2>Cleanup</h2>
+    <p>Subscribtions using <strong>c/appProvider</strong> are automatically handled and unsubscribed when their components are disconnected.</p>
+    <br/>
+    <p>However once channels are created they stay in the application's memory unless programatically removed.</p>
+    <p>To remove a channel (or channels) from the application use <strong>disconnectChannel</strong></p>
+    <br/>
+    <p><code>getApp().disconnectChannel(channel)</code></p>
+  </div>
+
+</template>

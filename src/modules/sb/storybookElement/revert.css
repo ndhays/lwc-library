@@ -1,0 +1,29 @@
+/* Inheritable styles that pierce shadow DOM */
+:host .revert {
+  azimuth: revert;
+  border-collapse: revert;
+  border-spacing: revert;
+  caption-side: revert;
+  color: revert;
+  cursor: revert;
+  direction: revert;
+  empty-cells: revert;
+  font-family: revert;
+  font-size: revert;
+  font-style: revert;
+  font-variant: revert;
+  font-weight: revert;
+  font: revert;
+  letter-spacing: revert;
+  line-height: revert;
+  list-style-image: revert;
+  list-style-position: revert;
+  list-style-type: revert;
+  list-style: revert;
+  text-align: revert;
+  text-indent: revert;
+  text-transform: revert;
+  visibility: revert;
+  white-space: revert;
+  word-spacing: revert;
+}

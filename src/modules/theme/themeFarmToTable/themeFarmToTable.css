@@ -1,0 +1,11 @@
+@import './colors.css';
+@import './headings.css';
+
+:host {
+  --font-h1: normal normal bold 2rem/2.5rem "Whyte",system-ui,Noto Sans,sans-serif;
+  --font-h2: normal normal bold 1.5rem/2rem "Whyte",system-ui,Noto Sans,sans-serif;
+  --font-h3: normal normal bold 1rem/1.5rem "Whyte",system-ui,Noto Sans,sans-serif;
+  --font-body: normal normal normal 1rem/1.5rem "Whyte",system-ui,Noto Sans,sans-serif;
+  --spacing-small: 0.5rem;
+  --spacing-medium: 2rem;
+}

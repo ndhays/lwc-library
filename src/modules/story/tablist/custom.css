@@ -1,0 +1,16 @@
+c-tablist.tabs-funky::part(tab) {
+  background-color: greenyellow;
+  border: 2px solid darkgreen;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+c-tablist.tabs-funky::part(tab-selected) {
+  background-color: greenyellow;
+  border: 2px solid darkgreen;
+  color: darkgreen;
+  font-weight: bold;
+  transform: scale(1.2);
+}

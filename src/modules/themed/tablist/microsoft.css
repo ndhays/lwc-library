@@ -1,0 +1,8 @@
+c-tablist.theme-microsoft::part(tab) {
+  border: 2px solid var(--color-text);
+  margin: 0 0.25rem;
+}
+
+c-tablist.theme-microsoft::part(tab-selected) {
+  font-weight: bold;
+}

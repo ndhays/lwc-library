@@ -1,0 +1,61 @@
+.component-container {
+  --sb-ruler-color-border: #555;
+  margin: 1rem;
+  position: relative;
+}
+
+.component-rulers {
+  display: none;
+}
+
+[data-show-grid="true"] {
+  background: rgba(255, 0, 255, 0.5);
+}
+
+[data-show-grid="true"] .component-rulers {
+  display: block;
+}
+
+[data-show-grid="true"] [data-component="true"] {
+  opacity: 0.5;
+}
+
+.component-ruler--horizontal,
+.component-ruler--horizontal-t,
+.component-ruler--horizontal-b {
+  position: absolute;
+  top: 50%;
+  left: -1rem;
+  width: calc(100% + 2rem);
+  height: 1px;
+  background: var(--sb-ruler-color-border);
+  transform: translateY(-50%);
+}
+
+.component-ruler--horizontal-t {
+  top: 0;
+}
+
+.component-ruler--horizontal-b {
+  top: 100%;
+}
+
+.component-ruler--vertical,
+.component-ruler--vertical-l,
+.component-ruler--vertical-r {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  width: 1px;
+  height: calc(100% + 2rem);
+  background: var(--sb-ruler-color-border);
+  transform: translateX(-50%);
+}
+
+.component-ruler--vertical-l {
+  left: 0;
+}
+
+.component-ruler--vertical-r {
+  left: 100%;
+}

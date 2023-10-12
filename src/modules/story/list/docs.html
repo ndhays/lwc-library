@@ -1,0 +1,27 @@
+<template>
+  
+  <div class="card">
+    <h2>Usage</h2>
+    <p>The list component is used to display a list of items (like cards) with predictable style (and spacing).</p>
+    <p>These items can be the same component or different components.</p>
+    <p>Top-level <strong>cmp</strong> and <strong>itemClass</strong> properties are for settings that apply to all list items.</p>
+  </div>
+
+  <div class="card">
+    <h2>Item Structure (JS Object)</h2>
+    <pre>
+      <code>
+        &lcub;<br/>
+        &Tab;cmp: CmpClass, // optional: specify the component of each list item individually<br/>
+        &Tab;itemClass: '', // optional: specify the class applied to each item individually<br/>
+        &Tab;id: '',<br/>
+        &Tab;key: '', // either id or key is required for the list to render properly<br/>
+        <br/>
+        &Tab;// ... other props of the component<br/>
+        &Tab;prop1: '...',<br/>
+        &Tab;prop2: '...'<br/>
+        &rcub;
+      </code>
+    </pre>
+  </div>
+</template>

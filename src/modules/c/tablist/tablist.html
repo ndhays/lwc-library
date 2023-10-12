@@ -1,0 +1,29 @@
+<template>
+
+  <div class="tablist">
+    <div class="tablist-instructions" id="instructions">
+      {insructions}
+    </div>
+    <ul class="tablist-tabs" part="tabs" onkeydown={handleKeyDown}>
+      <template for:each={tabs} for:item="tab">
+        <li class="tablist-item" key={tab.owns}>
+          <a
+            href={tab.href}
+            role="tab"
+            data-selected={tab.selected}
+            aria-describedby="instructions"
+            aria-selected={tab.selected}
+            aria-controls={tab.controls}
+            tabindex={tab.tabIndex}
+            data-owns={tab.owns}
+            onclick={handleClick}
+            part={tab.part}
+          >
+            {tab.label}
+          </a>
+        </li>
+      </template>
+    </ul>
+    <slot onslotchange={handleSlotChange}></slot>
+  </div>
+</template>

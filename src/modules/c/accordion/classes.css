@@ -1,0 +1,4 @@
+:host(.jump) {
+  --accordion--transition-property: none;
+  --accordion--transition-duration: 0s;
+}

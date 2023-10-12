@@ -1,0 +1,42 @@
+<template>
+  <header class="fixed h-12 top-0 left-0 z-50 w-full bg-sky-800"></header>
+  
+  <div class="panel panel-center">
+    <h1 class="text-3xl font-bold">Welcome to the LWC Component Library</h1>
+    <c-animation name="slide-up">
+      <div class="text-4xl pt-4 opacity-50">▽</div>
+    </c-animation>
+  </div>
+
+  <c-animation layer="1" pin-for="150vh">
+    <div class="panel panel-center">
+      <img class="absolute w-full" src={image.bg1} />
+      <c-animation layer="2" name="slide-up">
+        <h2 class="text-4xl font-bold pb-20">Reusable, Atomic Design and Functionality</h2>
+      </c-animation>
+    </div>
+  </c-animation>
+
+  <c-animation layer="1" pin-for="120vh">
+    <div class="panel panel-center">
+      <img class="absolute w-full opacity-70" src={image.bg4} />
+      <c-animation layer="2" name="slide-up">
+        <h2 class="text-2xl font-bold bg-slate-900/75 p-4 text-slate-100">And some work-in-progress animations ...</h2>
+      </c-animation>
+    </div>
+  </c-animation>
+
+  <div class="pt-32"></div>
+  <div class="panel panel-center">
+    <a class="text-2xl font-bold text-sky-900 hover:text-sky-700 underline underline-offset-2"
+      href="/library">
+      View Component Library
+  </a>
+  </div>
+
+  <!-- copyright -->
+    <div class="text-xs opacity-50 text-center py-4">
+      <p>Built by Nick Demarest © 2023</p>
+    </div>
+
+</template>

@@ -1,0 +1,12 @@
+<template>
+  <template lwc:if={showLoadingSlot}>
+    <slot name="loading">
+      <div class="loading">
+        <div class="loading-spinner"></div>
+      </div>
+    </slot>
+  </template>
+  <template lwc:else>
+    <slot></slot>
+  </template>
+</template>

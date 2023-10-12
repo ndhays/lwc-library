@@ -1,0 +1,21 @@
+<template>
+  <template if:true={cmpConstructor}>
+    <div class="component-container" data-show-grid={showGrid}>
+      <div class="component-rulers">
+        <div class="component-ruler component-ruler--horizontal"></div>
+        <div class="component-ruler component-ruler--horizontal-t"></div>
+        <div class="component-ruler component-ruler--horizontal-b"></div>
+        <div class="component-ruler component-ruler--vertical"></div>
+        <div class="component-ruler component-ruler--vertical-r"></div>
+        <div class="component-ruler component-ruler--vertical-l"></div>
+      </div>
+      <lwc:component
+        data-component="true"
+        lwc:is={cmpConstructor}
+        variant={variant}
+        is-documentation={isDocumentation}
+        lwc:ref="dynamic">
+      </lwc:component>
+    </div>
+  </template>
+</template>

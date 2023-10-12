@@ -1,0 +1,7 @@
+:host(.no-transition) {
+  --button--transition-duration: 0ms;
+  --button--transition-property: none;
+}
+
+/* Button is unique */
+/* see sharedStyles for more */

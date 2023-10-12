@@ -1,0 +1,65 @@
+<template>
+
+  <div class="card">
+    <h2>Message Bus (provider type: "messagebus")</h2>
+    <p>The default provider type is a <strong>Message Bus</strong>. This is a simple Pub / Sub model.</p>
+    <br/>
+    <h3>Additional App Functionality</h3>
+    <p>None</p>
+  </div>
+
+  <div class="card">
+    <h2>Redux Store (provider type: "redux")</h2>
+    <p>A Redux store implementation is available ootb.</p>
+    <br/>
+    <p>Channels automatically create generic redux slices with #update actions.</p>
+    <p>(These can be overwritten by using <strong>createSlice</strong>)</p>
+    <br/>
+    <h3>Additional App Functionality</h3>
+    <p><strong>reduxStore</strong> - access the redux "SuperStore" wrapper</p>
+    <br/>
+    <p>The SuperStore has the following functions:</p>
+    <br/>
+    <p><strong>actions()</strong> - returns an object with all redux actions (organized ootb by slice / channel)</p>
+    <p><strong>getStore()</strong> - returns the original redux store object - <a href="https://redux.js.org/api/store" target="_blank">Documentation</a></p>
+    <p><strong>createSlice(sliceData)</strong> - creates a redux slice - <a href="https://redux-toolkit.js.org/api/createSlice" target="_blank">Documentation</a></p>
+    <p><strong>registerSelector(name, ...selectorFns)</strong> - creates a custom named selector that acts as a channel and can be subscribed to like any other channel - <a href="https://redux-toolkit.js.org/api/createSelector" target="_blank">Documentation</a></p>
+    <p><strong>createSelector()</strong> - exported from redux toolkit if needed - <a href="https://redux-toolkit.js.org/api/createSelector" target="_blank">Documentation</a></p>
+    <p><strong>createAction()</strong> - exported if redux toolkit if needed - <a href="https://redux-toolkit.js.org/api/createAction" target="_blank">Documentation</a></p>
+    <br/>
+    <h3>Example:</h3>
+    <code>
+      <pre>
+      import &lcub; getApp &rcub; from 'c/application';<br/><br/>
+      ...<br/><br/>
+      const app = getApp();<br/>
+      app.reduxStore.actions().someSlice.someAction(&lcub; some: 'payload' &rcub;);
+      </pre>
+    </code>
+  </div>
+
+  <div class="card">
+    <h2>Lightning Message Service (provider type: "lightning")</h2>
+    <p>WIP</p>
+    <p><a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-message-service/documentation" target="_blank">Documentation</a></p>
+  </div>
+
+  <div class="card">
+    <h2>Salesforce Platform (provider type: "apex")</h2>
+    <p>WIP</p>
+    <p>Lightning @AuraEnabled Functions</p>
+  </div>
+
+  <div class="card">
+    <h2>Apollo Client (provider type: "apollo")</h2>
+    <p>WIP</p>
+  </div>
+
+  <div class="card">
+    <h2>Redux API (provider type: "reduxapi")</h2>
+    <p>WIP</p>
+    <p>RTK Query</p>
+    <p><a href="https://redux-toolkit.js.org/rtk-query/api/createApi" target="_blank">Documentation</a></p>
+  </div>
+
+</template>

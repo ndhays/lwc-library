@@ -1,0 +1,13 @@
+c-switch.theme-johndeere {
+  /* --switch--border-color: #222; */
+  --switch--border--width: 0.25rem;
+  --switch--transition-duration: 1s;
+}
+
+c-switch.theme-johndeere::part(switch) {
+  border: 1px solid var(--green);
+}
+
+c-switch.theme-johndeere::part(visual-cue) {
+  color: var(--green);
+}

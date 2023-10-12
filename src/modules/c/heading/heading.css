@@ -1,0 +1,54 @@
+@import 'c/stylesShared';
+
+:host {
+  display: block;
+  width: auto;
+}
+
+:host h1,
+:host h2,
+:host h3,
+:host h4,
+:host h5,
+:host h6 {
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+  width: inherit;
+}
+
+:host h1, :host(.h1) > * {
+  font-size: var(--heading--font-size, var(--h1--font-size));
+  font-weight: var(--heading--font-weight, var(--h1--font-weight));
+  line-height: var(--heading--line-height, var(--h1--line-height));
+}
+
+:host h2, :host(.h2) > * {
+  font-size: var(--heading--font-size, var(--h2--font-size));
+  font-weight: var(--heading--font-weight, var(--h2--font-weight));
+  line-height: var(--heading--line-height, var(--h2--line-height));
+}
+
+:host h3, :host(.h3) > * {
+  font-size: var(--heading--font-size, var(--h3--font-size));
+  font-weight: var(--heading--font-weight, var(--h3--font-weight));
+  line-height: var(--heading--line-height, var(--h3--line-height));
+}
+
+:host h4, :host(.h4) > * {
+  font-size: var(--heading--font-size, var(--h4--font-size));
+  font-weight: var(--heading--font-weight, var(--h4--font-weight));
+  line-height: var(--heading--line-height, var(--h4--line-height));
+}
+
+:host h5, :host(.h5) > * {
+  font-size: var(--heading--font-size, var(--h5--font-size));
+  font-weight: var(--heading--font-weight, var(--h5--font-weight));
+  line-height: var(--heading--line-height, var(--h5--line-height));
+}
+
+:host h6, :host(.h6) > * {
+  font-size: var(--heading--font-size, var(--h6--font-size));
+  font-weight: var(--heading--font-weight, var(--h6--font-weight));
+  line-height: var(--heading--line-height, var(--h6--line-height));
+}

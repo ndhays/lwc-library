@@ -1,0 +1,29 @@
+{
+    "lwc": {
+        "modules": [
+            {
+                "dir": "$rootDir/src/modules"
+            }
+        ]
+    },
+    "routes": [
+        {
+            "id": "storybookApp",
+            "path": "/",
+            "rootComponent": "sb/storybookApp",
+            "layoutTemplate": "$layoutsDir/storybook.html"
+        }
+    ],
+    "assets": [
+        {
+            "alias": "assetsDir",
+            "dir": "$rootDir/src/assets",
+            "urlPath": "/public/assets"
+        },
+        {
+            "alias": "favicon",
+            "file": "$rootDir/src/assets/favicon.ico",
+            "urlPath": "/favicon.ico"
+        }
+    ]
+}

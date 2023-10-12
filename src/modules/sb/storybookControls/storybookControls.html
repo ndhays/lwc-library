@@ -1,0 +1,337 @@
+<template>
+
+  <c-app-provider lwc:ref="app"
+    subscribe-to={channels}
+    onmessage={handleAppMessage}>
+  </c-app-provider>
+
+  <div class="flex-1 border-t-2 overflow-y-auto max-h-[33.333vh]" data-is-open={controlsOpen}>
+    <div class="flex border-b-2 sticky top-0 bg-white z-10">
+      <template for:each={tabs} for:item="tab">
+        <button key={tab.name} class="tab" onclick={handleToggleTab} data-active={tab.isActive} data-tab={tab.name} data-show={tab.show}>
+          {tab.name}
+          <template lwc:if={tab.count}>
+            <span class="ml-1 text-xs bg-gray-200 rounded-full px-1 py-0.5 font-bold">
+              {tab.count}
+            </span>
+          </template>
+        </button>
+      </template>
+      
+      <!-- toggle drawer -->
+      <button class="tab align-self-end ml-auto"
+        onclick={handleToggleControls}>
+        <template lwc:if={controlsOpen}>Hide Controls</template>
+        <template lwc:else>Show Controls</template>
+      </button>
+    </div>
+
+    <template lwc:if={controlsOpen}>
+      
+      <!-- PROPS -->
+      <template lwc:if={tabIs.Props}>
+        <div class="flex border-b font-bold py-1 px-2 text-sm">
+          <h3 class="w-1/4">@api property</h3>
+          <h3 class="w-3/4">value</h3>
+        </div>
+        <template for:each={formattedProps} for:item="prop">
+          <div key={prop.name} class="flex items-center border-b py-1 px-2 text-sm">
+            <h3 class="w-1/4">
+              {prop.name}
+              <template lwc:if={prop.tooltip}>
+                <span class="tooltip bg-gray-200 rounded-full font-bold">
+                  ?
+                  <div class="tooltip-content border border-gray-400 absolute bg-gray-200 rounded p-2 text-xs">
+                    {prop.tooltip}
+                  </div>
+                </span>
+              </template>
+            </h3>
+            <div class="w-3/4 flex items-center relative">
+              <template lwc:if={prop.isToggle}>
+                <c-switch is-on={prop.value} label={prop.name}
+                  disabled={prop.disabled}
+                  data-name={prop.name} onchange={handlePropChange}>
+                </c-switch>
+              </template>
+              <template lwc:elseif={prop.options.length}>
+                <label for="input" class="sr-only">{prop.name}</label>
+                <select class="w-full p-1"
+                  disabled={prop.disabled}
+                  data-name={prop.name}
+                  onchange={handlePropChange}>
+                  <template for:each={prop.options} for:item="option">
+                    <option selected={option.isSelected} key={option.value} value={option.value}>{option.label}</option>
+                  </template>
+                </select>
+              </template>
+              <template lwc:else>
+                <label for="input" class="sr-only">{prop.name}</label>
+                <input class={prop.inputClass} id="input"
+                  disabled={prop.disabled}
+                  type={prop.inputType}
+                  value={prop.value}
+                  checked={prop.checked}
+                  data-error="false"
+                  data-name={prop.name}
+                  data-json={prop.isJson}
+                  onkeyup={handlePropChangeKeyup}
+                  onchange={handlePropChange}>
+                <span></span>
+              </template>
+            </div>
+          </div>
+        </template>
+      </template>
+
+      <!-- EVENTS -->
+      <template lwc:if={tabIs.Events}>
+        <div class="flex border-b font-bold py-1 px-2 text-sm">
+          <h3 class="w-1/4">Event name</h3>
+          <h3 class="w-3/4">Event detail</h3>
+        </div>
+        <template for:each={events} for:item="event">
+          <div key={event.key} class="flex items-center border-b py-1 px-2 text-sm">
+            <h3 class="w-1/4">{event.name}</h3>
+            <pre class="w-3/4 flex items-center"><code>{event.payload}</code></pre>
+          </div>
+        </template>
+      </template>
+
+      <!-- METHODS -->
+      <template lwc:if={tabIs.Methods}>
+        <template lwc:if={methods.length}>
+          <div class="flex border-b font-bold py-1 px-2 text-sm">
+            <h3 class="w-1/4">Method name</h3>
+            <h3 class="w-3/4">Method description</h3>
+          </div>
+          <template for:each={methods} for:item="method">
+            <div key={method.name} class="flex items-center border-b py-1 px-2 text-sm">
+              <h3 class="w-1/4">{method.name}</h3>
+              <div class="w-3/4 p-1">
+                {method.description}
+              </div>
+            </div>
+          </template>
+        </template>
+        <template lwc:else>
+          <div class="text-sm py-1 px-2">This component has no methods.</div>
+        </template>
+      </template>
+
+      <!-- STYLE -->
+      <template lwc:if={tabIs.Style}>
+        <div class="text-sm font-bold pt-1 pl-1">Component Classes</div>
+        <template lwc:if={cssClasses.length}>
+          <div class="text-xs py-1 px-2">Use <strong>CSS Classes</strong> to style a component based on component-defined patterns.</div>
+          <div class="flex border-b font-bold py-1 px-2 text-sm">
+            <h3 class="w-1/4">CSS Class</h3>
+            <h3 class="w-3/4">description</h3>
+          </div>
+          <template for:each={cssClasses} for:item="cssClass">
+            <div key={cssClass.name} class="flex items-center border-b py-1 px-2 text-sm">
+              <h3 class="w-1/4 flex items-center">
+                <c-switch is-on={cssClass.toggled} data-classname={cssClass.name} onchange={handleClassChange}></c-switch>
+                <span class="ml-2">{cssClass.name}</span>
+              </h3>
+              <div class="w-3/4 p-1">
+                {cssClass.description}
+              </div>
+            </div>
+          </template>
+        </template>
+        <template lwc:else>
+          <div class="text-sm py-1 px-2">This component has no host classes for styling.</div>
+        </template>
+        <!-- style hooks -->
+        <div class="text-sm font-bold pt-1 pl-1">Styling Hooks (CSS Variables)</div>
+        <template lwc:if={cssVars.length}>
+          <div class="text-xs py-1 px-2 border-t">Use <strong>styling hooks</strong> (CSS Variables) for specific custom styling. (These will often override <strong>component default or themed styles</strong>.)</div>
+          <div class="flex border-b font-bold py-1 px-2 text-sm">
+            <h3 class="w-1/4">CSS Variable</h3>
+            <h3 class="w-3/4">value</h3>
+          </div>
+          <template for:each={cssVars} for:item="prop">
+            <div key={prop.name} class="flex items-center border-b py-1 px-2 text-sm">
+              <h3 class="w-1/4">
+                {prop.name}
+                <template lwc:if={prop.tooltip}>
+                  <span class="tooltip bg-gray-200 rounded-full font-bold">
+                    ?
+                    <div class="tooltip-content border border-gray-400 absolute bg-gray-200 rounded p-2 text-xs">
+                      {prop.tooltip}
+                    </div>
+                  </span>
+                </template>
+              </h3>
+              <div class="w-3/4 border p-1">
+                <input class="w-full p-1"
+                  type="text"
+                  value={prop.value}
+                  data-name={prop.name}
+                  onkeyup={handlePropCSSChangeKeyup}
+                  onchange={handlePropCSSChange}>
+              </div>
+            </div>
+          </template>
+        </template>
+        <template lwc:else>
+          <div class="text-sm py-1 px-2">This component has no styling hooks (CSS Variables).</div>
+        </template>
+        <!-- css ::parts -->
+        <div class="text-sm font-bold pt-1 pl-1">::part(s)</div>
+        <template lwc:if={cssParts.length}>
+          <div class="text-xs py-1 px-2 border-t">Use <strong>::parts</strong> for even greater flexibility with custom styling. (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::part" target="_blank">See more</a>)</div>
+          <div class="flex border-b font-bold py-1 px-2 text-sm">
+            <h3 class="w-1/4">CSS Part (::part)</h3>
+            <h3 class="w-3/4">description</h3>
+          </div>
+          <template for:each={cssParts} for:item="prop">
+            <div key={prop.name} class="flex items-center border-b py-1 px-2 text-sm">
+              <h3 class="w-1/4">
+                {prop.name}
+                <template lwc:if={prop.tooltip}>
+                  <span class="tooltip bg-gray-200 rounded-full font-bold">
+                    ?
+                    <div class="tooltip-content border border-gray-400 absolute bg-gray-200 rounded p-2 text-xs">
+                      {prop.tooltip}
+                    </div>
+                  </span>
+                </template>
+              </h3>
+              <div class="w-3/4">
+                {prop.description}
+              </div>
+            </div>
+          </template>
+        </template>
+        <template lwc:else>
+          <div class="text-sm py-1 px-2">This component has no CSS ::part(s) for customization.</div>
+        </template>
+      </template>
+
+      <!-- THEME -->
+      <template lwc:if={tabIs.Theme}>
+        <div class="text-sm font-bold pt-1 pl-1">Theme Styling Hooks (CSS Variables)</div>
+        <template lwc:if={cssVarsTheme.length}>
+          <div class="relative">
+            <button class="bg-gray-200 active:bg-gray-400 text-xs font-mono rounded p-2 absolute top-2 right-2"
+              onclick={handleCopyThemeCode}>Copy Theme Code
+            </button>
+          </div>
+          <div class="text-xs py-1 px-2 border-t">Use <strong>theme</strong> styling hooks (CSS Variables) to style a component with a <strong>global</strong> or <strong>shared</strong> theme.</div>
+          <div class="flex border-b font-bold py-1 px-2 text-sm">
+            <h3 class="w-1/4">CSS Variable</h3>
+            <h3 class="w-3/4">value</h3>
+          </div>
+          <template for:each={cssVarsTheme} for:item="prop">
+            <div key={prop.name} class="flex items-center border-b py-1 px-2 text-sm">
+              <h3 class="w-1/4">
+                {prop.name}
+                <template lwc:if={prop.tooltip}>
+                  <span class="tooltip bg-gray-200 rounded-full font-bold">
+                    ?
+                    <div class="tooltip-content border border-gray-400 absolute bg-gray-200 rounded p-2 text-xs">
+                      {prop.tooltip}
+                    </div>
+                  </span>
+                </template>
+              </h3>
+              <div class="w-3/4 border p-1">
+                <input class="w-full p-1"
+                  type="text"
+                  value={prop.value}
+                  data-name={prop.name}
+                  data-theme="true"
+                  onkeyup={handlePropCSSChangeKeyup}
+                  onchange={handlePropCSSChange}>
+              </div>
+            </div>
+          </template>
+        </template>
+        <template lwc:else>
+          <div class="text-sm py-1 px-2">This component has no styling hooks (CSS Variables).</div>
+        </template>
+      </template>
+
+      <!-- APPLICATION -->
+      <template lwc:if={tabIs.Application}>
+        <template lwc:if={sources.length}>
+          <div class="text-xs py-1 px-2 border-t">Data <strong>sources</strong> provide a component with data.</div>
+          <div class="flex border-b font-bold py-1 px-2 text-sm">
+            <h3 class="w-1/5">Channel</h3>
+            <h3 class="w-2/5">Data Source</h3>
+            <h3 class="w-2/5">Delay</h3>
+          </div>
+          <template for:each={sources} for:item="source">
+            <div key={source.name} class="flex items-center border-b py-1 px-2 text-sm">
+              <h3 class="w-1/5">
+                {source.name}
+                <template lwc:if={source.tooltip}>
+                  <span class="tooltip bg-gray-200 rounded-full font-bold">
+                    ?
+                    <div class="tooltip-content border border-gray-400 absolute bg-gray-200 rounded p-2 text-xs">
+                      {source.tooltip}
+                    </div>
+                  </span>
+                </template>
+              </h3>
+              <div class="w-2/5">
+                <select data-source={source.name} onchange={handleChangeProviderDataSet}>
+                  <template for:each={source.providerDataSets} for:item="set">
+                    <option selected={set.isSelected} key={set.name} value={set.name}>{set.name}</option>
+                  </template>
+                </select>
+              </div>
+              <div class="w-2/5">
+                <select data-source={source.name} onchange={handleChangeProviderDelay}>
+                  <template for:each={source.providerDelays} for:item="delay">
+                    <option selected={delay.isSelected} key={delay.label} value={delay.value}>{delay.label}</option>
+                  </template>
+                </select>
+              </div>
+            </div>
+          </template>
+        </template>
+        <template lwc:else>
+          <div class="text-sm py-1 px-2">This component has no registered data sources.</div>
+        </template>
+      </template>
+      
+      <!-- CODE -->
+      <template lwc:if={tabIs.Dependencies}>
+        <!-- <div class="text-sm font-bold pt-4 pl-1">Dependencies</div> -->
+        <!-- <div class="text-xs py-1 px-2 border-t">List of required <strong>dependencies</strong> this component needs to work properly.</div> -->
+        <template lwc:if={dependencies.length}>
+          <div class="flex border-b font-bold py-1 px-2 text-sm">
+            <h3 class="w-1/4">Dependency</h3>
+            <h3 class="w-1/4">version</h3>
+            <h3 class="w-1/4">size</h3>
+            <h3 class="w-1/4">link</h3>
+          </div>
+          <template for:each={dependencies} for:item="dependency">
+            <div key={dependency.name} class="flex items-center border-b py-1 px-2 text-sm">
+              <h3 class="w-1/4">
+                {dependency.name}
+              </h3>
+              <div class="w-1/4">
+                {dependency.version}
+              </div>
+              <div class="w-1/4">
+                {dependency.size}
+              </div>
+              <div class="w-1/4">
+                <template lwc:if={dependency.link}>
+                  <a href={dependency.link} target="_blank">{dependency.link}</a>
+                </template>
+              </div>
+            </div>
+          </template>
+        </template>
+        <template lwc:else>
+          <div class="text-sm py-1 px-2">This component has no dependencies.</div>
+        </template>
+      </template>
+    </template>
+  </div>
+</template>

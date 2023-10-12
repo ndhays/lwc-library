@@ -1,0 +1,31 @@
+<template>
+
+  <label class="sr-only" for="switch">{label}</label>
+  <button
+    id="switch"
+    type="button"
+    role="switch"
+    aria-checked={isOn}
+    aria-labelledby="switch"
+    onclick={handleChange}
+    disabled={disabled}
+  >
+    <span class="switch-wrapper" part="wrapper" data-is-on={isOn}>
+      <slot name="visual-cue">
+        <span class="visual-cue" part="visual-cue">
+          <!-- check icon -->
+          <svg viewBox="0 0 16 16" role="image" height="1em">
+            <title>on</title>
+            <path fill="currentColor" d="M5.5 11.5L2 8l1.4-1.4L5.5 8.7l6.1-6.1L13 3z"></path>
+          </svg>
+        </span>
+      </slot>
+      <span class="switch" part="switch" data-is-on={isOn}></span>
+    </span>
+  </button>
+  <div class="labels" data-is-on={isOn}>
+    <span class="label-on" part="label-on">{labelWhenOn}</span>
+    <span class="label-off" part="label-off">{labelWhenOff}</span>
+  </div>
+
+</template>

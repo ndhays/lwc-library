@@ -1,0 +1,81 @@
+<template>
+  <div class="card">
+    <template lwc:if={variantIs.Default}>
+      <h1>Welcome to the LWC Library <span class="font-bold text-sky-700">(beta)</span></h1>
+      <hr />
+      <br />
+
+      <h2>Accessibility</h2>
+      <p class="pb-4">
+        <c-badge class="positive mr-4" label="accessibility"></c-badge>
+        Components are built with <strong>accessibility</strong> foremost in mind</p>
+      <p>(NOTE: Customization may be limited by opinionated decisions that prioritize accessibility)</p>
+      <br />
+
+      <h2>Flexibility</h2>
+      <p>
+        <c-badge class="info mr-4" label="portable"></c-badge>
+        Components are lightweight, portable and are built to have a <strong>singular purpose</strong>
+      </p>
+      <p class="pt-4">
+        <c-badge class="info mr-4" label="themeable"></c-badge>
+        Components are built with <a href="https://atomicdesign.bradfrost.com/" target="_blank"><strong>Atomic Design principles</strong></a> in mind</p>
+      <p class="pt-4">
+        <c-badge class="info mr-4" label="application ready"></c-badge>
+        Components can be connected to a larger <strong>application context</strong> in a predictable way
+      </p>
+      <br />
+
+      <h2>Categories and Variants</h2>
+      <p>Components are organized on the left by category, while <strong>variants</strong> showcase functionality and style customization.</p>
+      <p class="pb-4">"Custom UI" variants refer to customized CSS ::part(s)</p>
+      <p>(NOTE: this is different from theming which is done through styling hooks / CSS Custom Variables.)</p>
+      <br />
+      <h3>Component Categories:</h3>
+      <p>- <strong>Base UI</strong> - the most basic (or native) reusable building blocks</p>
+      <p>- <strong>UI Library</strong> - complex but reusable and generic components</p>
+      <p>- <strong>Utilities</strong> - utility components that provide specific Javascript functionality and/or UI layer functionality</p>
+      <p>- <strong>Application</strong> - non-reusable components connected to a specific application use case and/or datasource</p>
+      <br />
+
+      <h2>How to Use Story Controls</h2>
+      <ul>
+        <li><strong>Props</strong>, <strong>Methods</strong> and <strong>Methods</strong> handle component functionality, structure, and communication</li>
+        <li><strong>Style</strong> displays UI customization with classes, style and theme hooks</li>
+        <li><strong>Application</strong> demonstrates data and larger application interaction</li>
+        <li><strong>Dependencies</strong> lists all dependencies required to port the component</li>
+      </ul>
+      <br />
+      
+      <h2>Customization Guide</h2>
+      <ul>
+        <li><strong>@api properties</strong> affect component functionality and variants</li>
+        <li><strong>slots</strong> provide a pattern for custom layout and content</li>
+        <li><strong>CSS Classes</strong> are a way of adding predictable (usually binary) component style</li>
+        <li><strong>CSS Variables</strong> enable specific CSS property overrides (and can be passed down thru the shadow DOM, ie. with a theme)</li>
+        <li><strong>CSS ::part(s)</strong> allow for detailed customization for a specific use case</li>
+      </ul>
+      </br>
+
+      <h2>Style and Themes</h2>
+      <p>The best way to style components with consistency is through themes.</p>
+      <p>A <strong>theme</strong> is essentially a list of <strong>CSS Variables</strong> (--variable-name).</p>
+      <p>This list can have multiple layers of self-reference and is best when derived in an atomic way from a <strong>design system</strong>.</p>
+      <p>Preview example themes by changing the dropdown in the header.</p>
+      <br />
+
+      <!-- <h2>AI Integration</h2>
+      <p>The primary goal of this library is to create <strong>essential patterns</strong> that can be used as building blocks in a branded application.</p>
+      <p>Components should provide simple, reliable, and accessible blueprints, (at the expense of being "fully featured" or covering all use cases).</p>
+      <br/>
+      <p>A set of reliable building blocks might allow existing LLM/AI technologies to generate more complex applications by combining these building blocks.</p> -->
+
+    </template>
+
+    <template lwc:if={variantIs.Components}>
+      <h1>Components</h1>
+      <p>Todo...</p>
+    </template>
+    
+  </div>
+</template>

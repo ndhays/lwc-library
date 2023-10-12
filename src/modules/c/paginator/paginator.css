@@ -1,0 +1,33 @@
+@import 'c/stylesShared';
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pagination-footer {
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pagination button:first-of-type {
+  margin-right: 0.5rem;
+}
+
+.page-item {
+  cursor: pointer;
+  margin: 0 0.125rem;
+}
+
+.page-item.page-item-active {
+  font-weight: bold;
+}

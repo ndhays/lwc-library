@@ -1,0 +1,29 @@
+@import 'c/stylesShared';
+@import './defaultToggleSlot.css';
+@import './themeable.css';
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  all: unset;
+  outline: revert;
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.accordion-item-content {
+  display: block;
+  min-height: 0;
+  overflow: hidden;
+  transition-property: var(--accordion--transition-property, height);
+  transition-duration: var(--accordion--transition-duration, 0.3s);
+  transition-timing-function: var(--accordion--transition-timing-function, ease-in-out);
+}

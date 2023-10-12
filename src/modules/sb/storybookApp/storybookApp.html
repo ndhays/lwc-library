@@ -1,0 +1,167 @@
+<template>
+
+  <c-app-provider lwc:ref="app"></c-app-provider>
+
+  <!-- HEADER -->
+  <div class="flex justify-between items-center bg-gray-800">
+    <h1 class="flex items-center text-xl text-white font-bold p-2 m-0 h-12">
+      <svg class="ml-2 mr-4" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient gradientUnits="userSpaceOnUse" cx="155.213" cy="314.866" r="252.643" id="gradient-0" gradientTransform="matrix(1.370945, -0.902622, 0.549907, 0.835226, -230.722604, 191.980469)">
+            <stop offset="0" style="stop-color: rgb(253, 122, 0);"/>
+            <stop offset="1" style="stop-color: rgb(224, 170, 100);"/>
+          </radialGradient>
+        </defs>
+        <rect x="-2.011" y="-2.789" width="505.285" height="504.326" style="stroke: rgb(0, 0, 0); paint-order: fill; fill: url('#gradient-0');" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, -1.4210854715202004e-14, 0)"/>
+        <rect x="14.357" y="22.273" width="203.863" height="203.863" style="stroke: rgb(0, 0, 0); fill: rgb(106, 217, 132);" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, -1.4210854715202004e-14, 0)"/>
+        <rect x="236.464" y="49.113" width="217.074" height="217.074" style="stroke: rgb(0, 0, 0); fill: rgb(65, 128, 68);" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, -1.4210854715202004e-14, 0)"/>
+        <rect x="101.235" y="184.788" width="194.866" height="194.866" style="stroke: rgb(0, 0, 0); fill: rgb(32, 51, 35);" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, -1.4210854715202004e-14, 0)"/>
+        <rect x="270.246" y="352.875" width="82.356" height="82.356" style="stroke: rgb(0, 0, 0); fill: rgb(78, 200, 108);" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, -1.4210854715202004e-14, 0)"/>
+        <rect x="379.555" y="244.589" width="40.731" height="40.731" style="stroke: rgb(0, 0, 0); fill: rgb(74, 241, 68);" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, -1.4210854715202004e-14, 0)"/>
+        <rect x="50.095" y="331.558" width="61.449" height="61.449" style="stroke: rgb(0, 0, 0); fill: rgb(64, 157, 76);" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, -1.4210854715202004e-14, 0)"/>
+      </svg>
+      LWC Library <span class="ml-2 font-bold text-sky-300">(beta)</span>
+    </h1>
+    <div class="mr-4 flex items-center">
+      <!-- toggle grid on / off (ruler grid guide icon)-->
+      <button class="text-white mr-4 rounded-sm" data-grid={showGrid} onclick={handleToggleGrid} title="Toggle grid rulers to show edges of actual component.">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125z"></path>
+        </svg>
+      </button>
+      <label class="text-white font-bold" for="themeselect">Theme:</label>
+      <select class="text-sm mr-4 text-white bg-gray-800 border-gray-600 border rounded p-1 m-2"
+        value={selectedTheme} onchange={handleApplyTheme}>
+        <template for:each={themes} for:item="theme">
+          <option key={theme} value={theme}>{theme}</option>
+        </template>
+      </select>
+      <a class="inline-block" href="https://github.com/ndhays/lwc-library" target="_blank">
+        <c-icon class="text-slate-100 h-5 translate-y-1 inline-block"></c-icon>
+      </a>
+    </div>
+  </div>
+
+  <div class="flex flex-row items-center">
+
+    <!-- COMPONENTS -->
+    <div class="flex h-[calc(100vh-3rem)] bg-gray-50 relative w-1/5 pt-4" data-is-open={componentListOpen}>
+      <div class="w-full overflow-y-scroll">
+        <template for:each={componentsByCategory} for:item="category">
+          <div key={category.name} class="border-t p-2">
+            <h2 class="pl-2 font-bold">{category.name}</h2>
+            <template for:each={category.components} for:item="cmp">
+              <div key={cmp.name} aria-expanded={cmp.isOpen}>
+                <button
+                  class="flex items-center text-sm px-2 py-0.5 m-0 w-full"
+                  data-name={cmp.name}
+                  data-is-selected-cmp={cmp.isSelected}
+                  data-selected-variant={selectedVariant}
+                  onclick={handleToggleComponent}>
+                  <template lwc:if={cmp.variants.length}>
+                    <span class="flex items-center justify-center mr-2 border rounded-sm p-0 h-2 w-2">
+                      <template lwc:if={cmp.isOpen}>-</template>
+                      <template lwc:else>+</template>
+                    </span>
+                  </template>
+                  <span>{cmp.title}</span>
+                </button>
+                <div lwc:if={cmp.isOpen}>
+                  <template for:each={cmp.variants} for:item="variant">
+                    <div class="flex" key={variant.name} data-is-selected={variant.isSelected}>
+                      <button lwc:if={variant.isCustom}
+                        class="w-full pl-4 py-0.5 text-sm text-sky-800 font-bold"
+                        data-name={cmp.name}
+                        data-variant={variant.name}
+                        onclick={handleSelectVariant}>
+                        {variant.name}
+                      </button>
+                      <button lwc:else
+                        class="w-full pl-4 py-0.5 text-sm"
+                        data-name={cmp.name}
+                        data-variant={variant.name}
+                        onclick={handleSelectVariant}>
+                        {variant.name}
+                      </button>
+                    </div>
+                  </template>
+                </div>
+              </div>
+            </template>
+          </div>
+        </template>
+      </div>
+
+      <!-- TOGGLE BUTTON caret left / right -->
+      <button lwc:ref="toggle" class="absolute -top-2 -right-2 z-10 toggle-button cursor-pointer bg-gray-800 rounded-full border-solid border-2 border-gray-200 flex items-center justify-center h-6 w-6"
+        onclick={handleToggleComponentList}>
+        <svg class="h-4 w-4 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+
+    </div>
+
+    <div class="flex flex-col h-[calc(100vh-3rem)] w-4/5 main-panel">
+      <!-- SELECTED COMPONENT -->
+      <div class="flex-[2_2_0%] w-full overflow-y-scroll" onstorybook={handleStorybookEvent}>
+        <template lwc:if={loading}>
+          <!-- <div class="flex items-center justify-center h-full">
+            <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-400"></div>
+          </div> -->
+        </template>
+        <template lwc:else>
+          <c-tablist lwc:ref="tabs" onchange={handleTabChange}>
+            <c-tab label="Documentation">
+              <lwc:component lwc:is={themeComponent} lwc:ref="documentation">
+                <sb-storybook-component lwc:ref="docs"
+                  is-documentation
+                  component-name={selectedComponent}
+                  variant={selectedVariant}>
+                </sb-storybook-component>
+              </lwc:component>
+            </c-tab>
+            <template lwc:if={componentHasPreview}>
+              <c-tab label="Preview" selected>
+                <lwc:component lwc:is={themeComponent} lwc:ref="theme">
+                  <sb-storybook-component lwc:ref="component"
+                    show-grid={showGrid}
+                    component-name={selectedComponent}
+                    variant={selectedVariant}>
+                  </sb-storybook-component>
+                </lwc:component>
+              </c-tab>
+            </template>
+            <template lwc:if={componentHasCode}>
+              <c-tab label="Code">
+                <div class="relative py-4 px-8">
+                  <div class="bg-gray-200 p-4">
+                    <code lwc:ref="code" lwc:dom="manual" class="block whitespace-pre-wrap"></code>
+                  </div>
+                  <button class="bg-gray-600 hover:bg-gray-800 text-xs text-gray-200 font-mono rounded p-2 absolute -top-6 right-10"
+                    onclick={handleCopyHTMLCode}>{copyText}
+                  </button>
+                </div>
+              </c-tab>
+            </template>
+          </c-tablist>
+        </template>
+      </div>
+
+      <!-- CONTROLS -->
+      <template lwc:if={selectedComponent}>
+        <sb-storybook-controls lwc:ref="controls"
+          selected-component={selectedComponent}
+          selected-variant={selectedVariant}
+          computed-css={computedCss}
+          events={events}
+          onpropchange={handlePropChange}
+        ></sb-storybook-controls>
+      </template>
+    </div>
+  </div>
+
+</template>

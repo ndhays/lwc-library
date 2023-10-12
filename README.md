@@ -1,0 +1,38 @@
+# New Component Recipe
+
+- Accessibility First
+  - What will never change about the component?
+  - What are the required structure and semantic tags?
+  - What are the required ARIA attributes?
+- Functionality
+  - What is the components singular purpose?
+  - What is the structural layout? Are multiple <template>s needed?
+  - What are the functional variants?
+  - Are there slots?
+  - Does it make sense to abstract any logic or use a utility?
+- Application & Data
+  - How does it react to a larger application and data?
+  - What datasources does it subscribe to?
+- Style Base and Classes
+  - What is the most basic / generic / opinionated style?
+  - What are some binary customization options (CSS Classes)?
+- Style Customization
+  - What are the ::part(s) to be defined?
+  - What are the most obvious CSS Variables to add custom style?
+
+## CSS Variable Naming Conventions (WIP)
+### Theme-Level
+Use single dashes for theme-level variables. These are variables that are used across the entire application. They are the base truth for the application.
+  
+Three Examples:  
+- `primary-color`
+- `secondary-color`
+- `background-color`
+
+### Component-Level
+Use BEM for component-level variables. These are variables that are used within a component. They read defaults from the theme-level variables (typically in a `themeable.css` file).
+  
+Three Examples:  
+- `button__primary-color`
+- `button__secondary-color`
+- `button__background-color`

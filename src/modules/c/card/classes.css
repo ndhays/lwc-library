@@ -1,0 +1,4 @@
+:host(.inverse) {
+  --card--bg-color: var(--color-bg-inverse);
+  --card--text-color: var(--color-text-oninverse);
+}

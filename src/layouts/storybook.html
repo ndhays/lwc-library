@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <title>Web Component Library</title>
+        <link rel="stylesheet" href="$assetsDir/styles/tailwind-reset.css" />
+        
+        <script type="module">
+            import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js';
+            import js from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/languages/javascript.min.js';
+            import css from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/languages/css.min.js';
+            import xml from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/languages/xml.min.js';
+            hljs.registerLanguage('javascript', js);
+            hljs.registerLanguage('css', css);
+            hljs.registerLanguage('xml', xml);
+            window.hljs = hljs;
+        </script>
+
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/themes/light.css" /> -->
+        <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.8.0/cdn/shoelace.js" ></script> -->
+    </head>
+    <body>
+        {{{body}}} {{{lwr_resources}}}
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<template>
+
+  <div class="card">
+    <h2>Accessibility</h2>
+    <ul>
+      <li><a href="https://www.useragentman.com/enable/tabs.php" target="_blank">UserAgentMan</a></li>
+      <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/" target="_blank">WAI-ARIA</a></li>
+    </ul>
+  </div>
+  
+  <div class="card">
+    <h2>Custom</h2>
+    <p>Create a custom switch using CSS with both styling hooks and/or ::part(s).</p>
+    <br/>
+    <h3>Example of Customization with Styling Hooks</h3>
+    <pre><code>c-tablist.tabs-my-tabs &lcub;<br/>  --css-variable-override: ...<br/>&rcub;</code></pre>
+    <br/>
+    <h3>Example of Customization with ::part(s)</h3>
+    <pre><code>c-tablist.tablist-my-tabs::part(tab) &lcub;<br/>  any style ...<br/>&rcub;</code></pre>
+    <pre><code>c-tablist.tablist-my-tabs::part(tab-selected) &lcub;<br/>  any style ...<br/>&rcub;</code></pre>
+  </div>
+
+</template>

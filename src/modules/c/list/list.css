@@ -1,0 +1,20 @@
+@import 'c/stylesShared';
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+[data-id="list-item"] {
+  display: flex;
+  margin: 0.5rem;
+  transition-delay: 0.15s;
+  transition: transform 0.15s ease-in-out;
+}
+
+[data-id="list-item"]:hover {
+  transform: scale(1.05);
+}

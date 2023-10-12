@@ -1,0 +1,33 @@
+c-accordion.theme-johndeere {
+  --accordion--border-color: var(--yellow);
+  --accordion--content--background-color: white;
+  --accordion--content--padding: var(--spacing-medium);
+  --accordion--heading-font: var(--font-h3);
+  --accordion--item-gap: 0;
+  --accordion--toggle--background-color: var(--green);
+  --accordion--toggle--padding: var(--spacing-medium);
+  --color-text: var(--yellow);
+  --accordion--transition-duration: 0s;
+}
+
+c-accordion.theme-johndeere c-accordion-item::part(toggle) {
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 0.25rem 1rem;
+  width: calc(100% - 2rem);
+}
+
+c-accordion.theme-johndeere c-accordion-item::part(toggle):hover {
+  --accordion-item--toggle--background-color: var(--color-icon-brand-pressed);
+}
+
+c-accordion.theme-johndeere c-accordion-item::part(content) {
+  background-color: var(--yellow);
+  border: 2px solid var(--green);
+  border-radius: 1rem;
+  color: var(--green);
+  margin: 0.25rem 1rem 1rem 1rem;
+  width: calc(100% - 2rem);
+  box-shadow: 0 0.5rem 1rem rgba(255, 220, 0, 0.15);
+  font-size: 1rem;
+}

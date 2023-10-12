@@ -1,0 +1,21 @@
+/* This component contains all global shared styles */
+/* It resets default styles and prepares components for using theme styles */
+/* It contains styling hooks for native HTML elements  */
+
+/* @import 'c/stylesReset'; Reset default styles (duplicated in tailwind.css) */
+
+@import './buttons.css'; /* <button> */
+@import './headings.css'; /* <h1> - <h6> */
+
+/* @import './lineBreaks.css'; <hr /> */
+@import './links.css'; /* <a> */
+/* @import './tables.css'; <table> */
+
+@import './typography.css';
+
+/* Only to be used for a reset general utility classes that are not really customizable */
+/* But any tailwind styles can be used */
+/* Run: tailwindcss -i tailwind.css -o ./src/modules/c/stylesShared/tailwind.css */
+@import './tailwind.css';
+
+/* @import './themeContext.css'; */

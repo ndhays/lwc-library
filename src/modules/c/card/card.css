@@ -1,0 +1,52 @@
+@import 'c/stylesShared';
+
+@import './classes.css';
+@import './themeable.css';
+
+.card {
+  background-color: var(--card--bg-color);
+  border: 1px solid #eaeaea;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+  color: var(--card--text-color);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  max-width: 10rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.card-image {
+  border-bottom: 1px solid var(--card--border-color);
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  padding: 1rem;
+  flex-basis: 10rem;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+img {
+  width: 100%;
+}
+
+.card-content {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,4 @@
+:host {
+  --color-focus: var(--color-border-onselected-strong);
+  --outline: 0.25rem solid var(--color-focus);
+}

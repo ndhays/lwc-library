@@ -1,0 +1,42 @@
+/* Styles for default slot version */
+:host {
+  --accordion--transition-property: height, margin;
+  border-top: 1px solid var(--accordion-item--border-color);
+}
+
+:host(.accordion-item-expanded) .accordion-item-content {
+  margin-bottom: var(--accordion-item--item-gap);
+}
+
+:host(.accordion-item-last) c-accordion-item {
+  border-bottom: 1px solid var(--accordion-item--border-color);
+}
+
+c-heading {
+  background-color: var(--accordion-item--toggle--background-color);
+  padding: var(--accordion-item--toggle--padding);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font: var(--accordion-item--heading-font);
+  margin: 0;
+}
+
+svg {
+  color: var(--accordion-item--icon-color, currentColor);
+  height: var(--accordion-item--icon-height, 1em);
+}
+
+svg[data-is-expanded="true"] {
+  transform: rotate(180deg);
+}
+
+.accordion-item-content {
+  background-color: var(--accordion-item--content--background-color);
+}
+
+slot[name="content"] {
+  display: block;
+  padding: var(--accordion-item--content--padding);
+}

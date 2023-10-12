@@ -1,0 +1,33 @@
+@import 'c/stylesShared';
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem;
+  background-color: black;
+  color: white;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  text-align: center;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  top: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 0.25rem solid transparent;
+  border-bottom-color: black;
+}

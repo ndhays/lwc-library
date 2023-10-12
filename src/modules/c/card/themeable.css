@@ -1,0 +1,5 @@
+:host {
+  --card--bg-color: var(--color-bg);
+  --card--border-color: var(--color-border-brand);
+  --card--text-color: var(--color-text);
+}

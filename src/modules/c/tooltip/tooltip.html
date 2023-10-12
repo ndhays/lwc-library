@@ -1,0 +1,12 @@
+<template>
+  <div class="tooltip-container"
+    onmouseover={handleActivate}
+    onmouseout={handleDeactivate}
+    onkeypress={handleKeyPress}
+    >
+    <slot name="trigger" onslotchange={handleSlotChange}></slot>
+    <div role="tooltip" aria-hidden={inactive} class={tooltipClass}>
+      <slot name="tooltip"></slot>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,11 @@
+:host {
+  --accordion-item--border-color: var(--accordion--border-color);
+  --accordion-item--content--background-color: var(--accordion--content--background-color);
+  --accordion-item--content--padding: var(--accordion--content--padding);
+  --accordion-item--heading-font: var(--accordion--heading-font);
+  --accordion-item--icon-color: var(--accordion--icon-color, currentColor);
+  --accordion-item--icon-height: var(--accordion--icon-height, 1em);
+  --accordion-item--item-gap: var(--accordion--item-gap);
+  --accordion-item--toggle--background-color: var(--accordion--toggle--background-color);
+  --accordion-item--toggle--padding: var(--accordion--toggle--padding);
+}

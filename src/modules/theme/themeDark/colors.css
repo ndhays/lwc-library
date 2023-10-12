@@ -1,0 +1,49 @@
+:host {
+  --color-bg: #1e1e1e; 
+  --color-bg-brand: #3cb2ff;
+  --color-bg-brand-hover: #0099e5;
+  --color-bg-brand-pressed: #0099e5;
+  --color-bg-brand-secondary: #0059b3;
+  --color-bg-brand-tertiary: #00448f;
+  --color-bg-component: #c262ff;
+  --color-bg-component-hover: #9f45e5;
+  --color-bg-component-pressed: #9f45e5; 
+  --color-bg-component-secondary: #8124da;
+  --color-bg-component-tertiary: #5d217f;
+  --color-bg-danger: #ff3822;
+  --color-bg-danger-hover: #e63412;
+  --color-bg-danger-pressed: #e63412;
+  --color-bg-danger-secondary: #b52915;
+  --color-bg-danger-tertiary: #7f1c10;
+  --color-bg-disabled: #4d4d4d;
+  --color-bg-disabled-secondary: #262626;
+  --color-bg-hover: #464646; 
+  --color-bg-inverse: #e6e6e6;
+  --color-bg-onselected: #0059b3;
+  --color-bg-onselected-hover: #0059b3;
+  --color-bg-onselected-pressed: #0059b3;
+  --color-bg-pressed: #292929;
+  --color-bg-secondary: #292929;
+  --color-bg-selected: #00448f;
+  --color-bg-selected-hover: #0059b3;
+  --color-bg-selected-pressed: #0059b3;
+  --color-bg-selected-secondary: #003b71; 
+  --color-bg-selected-strong: #3cb2ff;
+  --color-bg-selected-tertiary: #003b71;
+  --color-bg-success: #00e559;
+  --color-bg-success-hover: #00995d;
+  --color-bg-success-pressed: #00995d;
+  --color-bg-success-secondary: #00734b;
+  --color-bg-success-tertiary: #004a38;
+  --color-bg-tertiary: #333333;
+  --color-bg-warning: #ffd529;
+  --color-bg-warning-hover: #e6b71a;
+  --color-bg-warning-pressed: #e6b71a;
+  --color-bg-warning-secondary: #ca9f15; 
+  --color-bg-warning-tertiary: #a68311;
+
+  --color-border: #555555;
+
+  --color-text: #ffffff;
+  --color-text-oninverse: #000000;
+}

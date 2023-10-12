@@ -1,0 +1,7 @@
+@import 'c/stylesShared';
+
+:host {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}

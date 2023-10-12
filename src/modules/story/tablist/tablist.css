@@ -1,0 +1,16 @@
+@import './custom.css';
+
+c-tablist::part(tab) {
+  display: inline-block;
+  padding: 1rem 2rem;
+}
+
+c-tablist::part(tab-selected) {
+  background-color: var(--color-bg-selected);
+}
+
+c-tablist c-tab::part(tab-content) {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}

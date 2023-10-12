@@ -1,0 +1,12 @@
+<template>
+
+  <div class="component">
+    <c-app-provider lwc:ref="app"
+      subscribe-to="getCards"
+      onmessage={handleAppMessage}>
+      <c-paginator per-page={perPage} total={total} onchange={handlePageChange}></c-paginator>
+      <c-list cmp={cardCmp} items={cards}></c-list>
+    </c-app-provider>
+  </div>
+
+</template>

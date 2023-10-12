@@ -1,0 +1,22 @@
+@import './classes.css';
+
+:host {
+  --badge--background-color: #6c757d;
+  --badge--border: 1px solid #6c757d;
+  --badge--border-radius: 0.25rem;
+  --badge--color: #fff;
+  --badge--font: var(--font-h5);
+  --badge--padding: 0.25rem 0.4rem;
+}
+
+span {
+  background-color: var(--badge--background-color);
+  border: var(--badge--border);
+  border-radius: var(--badge--border-radius);
+  color: var(--badge--color);
+  display: inline-block;
+  padding: var(--badge--padding);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;  
+}

@@ -1,0 +1,35 @@
+:host(.jump) .switch,
+:host(.jump) .switch-wrapper {
+  transition: none;
+}
+
+:host(.cursor-default) button {
+  cursor: default;
+}
+
+:host(.show-check) [data-is-on="true"] .visual-cue {
+  color: var(--switch--color);
+  display: block;
+  font-size: calc(var(--switch--height) * 0.625);
+  position: absolute;
+  top: 50%;
+  left: calc(var(--switch--height) / 2 + 0.125rem);
+  transform: translate(-50%, -50%);
+}
+
+:host(.square) button,
+:host(.square) .switch-wrapper,
+:host(.square) .switch {
+  border-radius: 0;
+}
+
+:host(.show-labels) .labels {
+  display: block;
+  font-size: calc(var(--switch--height) * 0.4);
+  text-align: center;
+}
+
+[data-is-on="true"] .label-off,
+[data-is-on="false"] .label-on {
+  display: none;
+}

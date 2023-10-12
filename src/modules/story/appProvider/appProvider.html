@@ -1,0 +1,107 @@
+<template>
+  <div class="card">
+    <h2>Application</h2>
+    <p>The <strong>c/application</strong> and <strong>c/appProvider</strong> components together provide a predictable interface to connect any Web Component with a larger "application" context or data source.</p>
+    <br/>
+    <p>It uses a reactive / flux-based approach to data flow and has an available redux implementation built-in.</p>
+    <br/>
+    <p>This allows a great framework for separating concerns for development, including benefits like using mock data, loading states, and predictability.</p>
+  </div>
+
+  <div class="card">
+    <h2>Template Usage</h2>
+    <p>The <strong>c/appProvider</strong> component provides a reactive <strong>template interface</strong> for the application.</p>
+    <br/>
+    <h3>At the Component Level</h3>
+    <p>A web component says, "I'm listening to this CHANNEL for some kind of message or data."</p>
+    <br/>
+    <code>
+      <pre>
+      &lt;app-provider lwc:ref="appProvider"<br/>
+      &Tab;subscribe-to="channel-name"<br/>
+      &Tab;onmessage=&lcub;handleAppMessage&rcub;<br/>
+      &gt;&lt;/app-provider&gt;
+      </pre>
+    </code>
+    <br/><br/><br/>
+    <h3>Multiple Channels</h3>
+    <code>
+      <pre>
+      &lt;c-app-provide lwc:ref="appProvider"<br/>
+      &Tab;subscribe-to="channel1,channel2,channel3"<br/>
+      &Tab;onmessage=&lcub;handleAppMessage&rcub;<br/>
+      &gt;&lt;/c-app-provider&gt;
+      </pre>
+    </code>
+    <br/>
+    <p>(This can also be a dynamic array of channels.)</p>
+    <br/><br/>
+    <h3>All Channels (wildcard)</h3>
+    <code>
+      <pre>
+      &lt;c-app-provider lwc:ref="appProvider"<br/>
+      &Tab;subscribe-to="*"<br/>
+      &Tab;onmessage=&lcub;handleAppMessage&rcub;<br/>
+      &gt;&lt;/c-app-provider&gt;
+      </pre>
+    </code>
+  </div>
+
+  <div class="card">
+    <h2>Loading State</h2>
+    <p>The <code>c-app-provider</code> component has an optional loading state that can be toggled with <strong>show-loading</strong> property.</p>
+    <p>(The "loading" slot visibility is handled automatically based on the message payload's "loading" property value.)</p>
+    <br/>
+    <p><strong>Example with default "loading" slot content:</strong></p>
+    <br/>
+    <c-app-provider subscribe-to="storybookLoading" show-loading>
+      <p>Sample content showing "loaded" state.</p>
+    </c-app-provider>
+  </div>
+
+  <div class="card">
+    <h2>Events</h2>
+    <p><strong>message</strong> (<em>Event</em>) the event when a channel is updated</p>
+    <br/>
+    <p><button class="button" onclick={handleTriggerAppEvent}>Click to Publish Message with "loading" toggle</button></p>
+  </div>
+
+  <div class="card">
+    <h2>Message Response</h2>
+    <p>The event detail contains the message payload.</p>
+    <br/>
+    <code>
+      <pre>
+      handleAppMessage(&lcub; detail &rcub;) &lcub;<br/>
+      &Tab;...<br/>
+      &rcub;
+      </pre>
+    </code>
+    <br/><br/>
+    <h3>Multiple Channels</h3>
+    <p>If multiple channels are subscribed to then response data is scoped by the channel name.</p>
+    <br/>
+    <code>
+      <pre>
+      handleAppMessage(&lcub; detail: &lcub; channel1, channel2 &rcub; &rcub;) &lcub;<br/>
+      &Tab;...<br/>
+      &rcub;
+      </pre>
+    </code>
+    <br/><br/>
+  </div>
+
+  <div class="card">
+    <h2>Javascript Usage</h2>
+    <p>Access is available to the <strong>getApp</strong> function on the AppProvider component:</p>
+    <br/>
+    <code>
+      <pre>
+      this.refs.appProvider.getApp()
+      </pre>
+    </code>
+    <br/><br/>
+    <p>See the "Application" variant for more information on using the Javascript app interface.</p>
+  </div>
+
+</template>

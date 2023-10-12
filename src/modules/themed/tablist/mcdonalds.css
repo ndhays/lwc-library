@@ -1,0 +1,15 @@
+c-tablist.theme-mcdonalds::part(tab) {
+  background-color: var(--fries);
+  border: 2px solid var(--red);
+  border-radius: 0.5rem;
+  margin: 1rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+c-tablist.theme-mcdonalds::part(tab-selected) {
+  background-color: var(--red);
+  border: 2px solid var(--red);
+  color: var(--fries);
+  font-weight: bold;
+  transform: scale(1.2);
+}

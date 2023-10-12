@@ -1,0 +1,7 @@
+.theme-mcdonalds ::part(card),
+c-card-list.theme-mcdonalds::part(card),
+c-card.theme-mcdonalds::part(card) {
+  border: none;
+  /* heavy box shadow */
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+}

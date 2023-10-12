@@ -1,0 +1,13 @@
+:host {
+    --switch--background-color: var(--color-primary);
+    --switch--border--color: var(--color-border);
+    --switch--border--style: solid;
+    --switch--border--width: 1px;
+    --switch--box-shadow: none;
+    --switch--color: var(--color-bg);
+    --switch--height: 2rem;
+    --switch--width: 4rem;
+    --switch--isOn--background-color: var(--color-secondary);
+    --switch--isOn--border: 1px solid var(--color-border);
+    --switch--isOn--box-shadow: none;
+}

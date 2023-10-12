@@ -1,0 +1,73 @@
+
+@import './syntaxHighlight.css';
+@import './tailwind.css';
+
+:host {
+  --sb-outline: 0.125rem solid var(--color-focus, magenta);
+  --spacing-small: 0.75rem;
+  --spacing-medium: 1rem;
+  --spacing-large: 1.5rem;
+}
+
+::part(tabs) {
+  align-items: center;
+  font-size: 0.875rem;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 1rem 0;
+}
+
+::part(tab) {
+  border: 2px solid #1f2937;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-radius: var(--sb-tab-br-nw) var(--sb-tab-br-ne) var(--sb-tab-br-se) var(--sb-tab-br-sw);
+  --sb-tab-br-nw: 0;
+  --sb-tab-br-ne: 0;
+  --sb-tab-br-se: 0;
+  --sb-tab-br-sw: 0;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  transition-property: background-color, color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+::part(tab-selected) {
+  background-color: #1f2937;
+  color: #fff;
+}
+
+::part(tab-first) {
+  --sb-tab-br-nw: 2rem;
+  --sb-tab-br-sw: 2rem;
+  border-left-width: 2px;
+}
+
+::part(tab-last) {
+  --sb-tab-br-ne: 2rem;
+  --sb-tab-br-se: 2rem;
+  border-right-width: 2px;
+}
+
+a {
+  color: #1a202c;
+  padding: 0.25rem;
+  text-decoration: underline;
+  transition: color 0.15s ease;
+}
+a:hover {
+  color: #718096;
+}
+
+button {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+select:focus-visible,
+button:focus-visible {
+  outline: 0.125rem solid var(--color-focus, magenta);
+  outline-offset: -0.125rem;
+}

@@ -1,0 +1,34 @@
+<template>
+
+  <div class="card include-theme">
+    <h2>Styleguide</h2>
+    <div class="styleguide">
+      <c-button variant="brand">Button - Brand</c-button>
+      <c-button variant="neutral">Button - Neutral</c-button>
+    </div>
+    <div class="styleguide">
+      <c-button variant="danger">Button - Danger</c-button>
+      <c-button variant="success">Button - Success</c-button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Theme</h2>
+    <p>There are some built in CSS styling hooks to integrate a design system.</p>
+  </div>
+
+  <div class="card">
+    <h2>Custom</h2>
+    <p>To create a custom button you can use a "custom" variant name with CSS using both styling hooks and/or ::part(s).</p>
+    <br/>
+    <h3>Example Variant "custom-purple"</h3>
+    <div><c-button variant="custom-purple">Button - Custom</c-button></div>
+    <br/>
+    <h3>Example of Customization with Styling Hooks</h3>
+    <pre><code>c-button.button-custom-purple &lcub;<br/>  --css-variable-override: ...<br/>&rcub;</code></pre>
+    <br/>
+    <h3>Example of Customization with ::part(s)</h3>
+    <pre><code>c-button.button-custom-purple::part(button) &lcub;<br/>  any style ...<br/>&rcub;</code></pre>
+  </div>
+
+</template>

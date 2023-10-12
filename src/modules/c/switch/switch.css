@@ -1,0 +1,59 @@
+@import 'c/stylesShared';
+@import './classes.css';
+@import './themeable.css';
+
+:host {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button {
+  border-radius: var(--switch--height);
+  display: flex;
+}
+
+button:focus-visible {
+  outline: var(--outline);
+}
+
+.switch-wrapper {
+  position: relative;
+  display: inline-block;
+  width: var(--switch--width);
+  height: calc(var(--switch--height) + 0.25rem);
+  background-color: var(--switch--background-color, var(--color-bg-brand, lightblue));
+  border-color: var(--switch--border--color);
+  border-style: var(--switch--border--style);
+  border-width: var(--switch--border--width);
+  border-radius: var(--switch--height);
+  box-shadow: var(--switch--box-shadow);
+  box-sizing: content-box;
+  transition: background-color var(--switch--transition-duration, 0.2s) ease;
+}
+
+.switch {
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  height: var(--switch--height);
+  width: var(--switch--height);
+  border-radius: 100%;
+  background-color: var(--switch--color);
+  transition: left var(--switch--transition-duration, 0.2s) ease;
+}
+
+.switch-wrapper[data-is-on="true"] {
+  background-color: var(--switch--isOn--background-color, var(--color-bg-component-pressed, darkblue));
+  box-shadow: var(--switch--isOn--box-shadow)
+}
+
+[data-is-on="true"] .switch {
+  border: 1px solid var(--switch--isOn--border);
+  left: calc(var(--switch--width) - var(--switch--height) - 0.125rem);
+}
+
+.visual-cue, .labels {
+  display: none;
+}

@@ -1,0 +1,27 @@
+c-tablist.file::part(tab) {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem 0.5rem 0 0;
+  color: var(--color-text);
+  display: inline-block;
+  padding: 1rem 2rem;
+  position: relative;
+  margin: 0;
+  transform: none;
+  transition: none;
+  z-index: 2;
+}
+
+c-tablist.file::part(tab-selected) {
+  background-color: var(--color-bg-selected, var(--color-bg));
+  border-bottom-color: var(--color-bg-selected, var(--color-bg));
+}
+
+c-tablist.file c-tab::part(tab-content) {
+  border: 1px solid var(--color-border);
+  display: flex;
+  padding: 1rem;
+  position: relative;
+  transform: translateY(-1px);
+  z-index: 1;
+}

@@ -1,0 +1,4 @@
+.theme-johndeere.inverse ::part(card), /* exported part */
+.theme-johndeere.inverse::part(card) {
+  box-shadow: 0 0 1rem rgba(255, 220, 0, 0.5);
+}

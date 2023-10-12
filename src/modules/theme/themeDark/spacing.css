@@ -1,0 +1,5 @@
+:host {
+  --spacing-small: 0.75rem;
+  --spacing-medium: 1rem;
+  --spacing-large: 1.5rem;
+}

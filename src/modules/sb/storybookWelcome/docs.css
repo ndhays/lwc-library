@@ -1,0 +1,8 @@
+@import 'sb/storybookStyles';
+
+.story-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  margin: 0 auto;
+}

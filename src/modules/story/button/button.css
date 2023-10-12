@@ -1,0 +1,18 @@
+c-button.button-custom-purple {
+  --button--bg-color: var(--color-bg-component);
+  --button--border-color: var(--color-border-component);
+  --button--color: var(--color-text-oncomponent);
+  --button--bg-color-hover: var(--color-bg-component-hover);
+  --button--color-hover: var(--color-text-oncomponent);
+  --button--padding: 1rem 2rem;
+}
+
+c-button.button-custom-purple::part(button) {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+c-button.button-custom-purple::part(button):hover {
+  box-shadow: 0 0 0 1px var(--color-border-component);
+}

@@ -1,0 +1,28 @@
+@import './accordion.css';
+
+c-accordion-item::part(toggle) {
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 0.25rem 0;
+}
+
+c-accordion-item::part(toggle-heading) {
+  transition-duration: 0.25s;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+}
+
+c-accordion-item::part(toggle-heading):hover {
+  --accordion-item--toggle--background-color: var(--color-icon-brand-pressed);
+  --color-text: var(--color-text-oninverse);
+}
+
+c-accordion-item::part(content) {
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 1rem;
+  color: var(--color-text);
+  margin: 0.25rem 0 1rem 0;
+  box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.15);
+  font-size: 1rem;
+}

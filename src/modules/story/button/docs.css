@@ -1,0 +1,12 @@
+@import './button.css';
+
+.styleguide {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+}
+
+c-button {
+  padding: 0.5rem 1rem;
+  width: 33.333%;
+}
