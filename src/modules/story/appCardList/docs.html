@@ -3,7 +3,7 @@
     <h2>Example with Cards</h2>
     <p>Each page has 100 randomly generated cards.</p>
     <br/>
-    <p>This example makes use of the following components:</p>
+    <p>This example includes the following components:</p>
     <ul>
       <li>c/application</li>
       <li>c/appProvider</li>
@@ -11,5 +11,38 @@
       <li>c/list</li>
       <li>c/paginator</li>
     </ul>
+  </div>
+
+  <div class="card">
+    <h2>Javascript Code</h2>
+    <p>Here is the Javascript code for the example card list.</p>
+    <br/>
+    <pre>
+      <code>
+        export default class AppCardList extends LightningComponent &lcub;<br/>
+        <br/>
+        cardCmp = Card;<br/>
+        <br/>
+        cards = [];<br/>
+        total = 0;<br/>
+        <br/>
+        handleAppMessage(&lcub; detail &rcub;) &lcub;<br/>
+          &Tab;const &lcub; loading, data &rcub; = detail || &lcub;&rcub;;<br/>
+          &Tab;this.cards = [];<br/>
+          &Tab;if (data) &lcub;<br/>
+          &Tab;&Tab;this.cards = data.items || [];<br/>
+          &Tab;&Tab;this.total = data.total;<br/>
+          &Tab;&Tab;this.perPage = data.perPage;<br/>
+          &Tab;&rcub;<br/>
+        &rcub;<br/>
+        <br/>
+        handlePageChange(&lcub; detail: &lcub; page &rcub; &rcub;) &lcub;<br/>
+        &Tab;this.cards = [];<br/>
+        &Tab;this.refs.app.getApp().requestFrom('getCards', &lcub; page &rcub;);<br/>
+        &rcub;<br/>
+        <br/>
+        &rcub;
+      </code>
+    </pre>
   </div>
 </template>

@@ -111,6 +111,10 @@ export default class extends LightningElement {
         this.myCmp.addEventListener(event, this.handleEvent.bind(this));
       });
     }
+    // const code = this.template.querySelectorAll('code');
+    // code.forEach((codeElement) => {
+    //   window.hljs.highlightElement(codeElement);
+    // });
   }
 
   changeTheme(theme) {
