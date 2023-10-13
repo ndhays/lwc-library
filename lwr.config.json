@@ -24,6 +24,11 @@
             "alias": "favicon",
             "file": "$rootDir/src/assets/favicon.ico",
             "urlPath": "/favicon.ico"
+        },
+        {
+            "alias": "google",
+            "file": "$rootDir/src/assets/google02fd57cd1c76ef5b.html",
+            "urlPath": "/google02fd57cd1c76ef5b.html"
         }
     ]
 }
