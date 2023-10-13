@@ -9,7 +9,7 @@
   <slot></slot>
   <div class="pagination-footer">
     <template for:each={pageItems} for:item="item">
-      <button key={item.key} data-page={item.value} class={item.class} onclick={handlePage}>{item.label}</button>
+      <button part="pageNumber" key={item.key} data-page={item.value} class={item.class} onclick={handlePage}>{item.label}</button>
     </template>
   </div>
 </template>

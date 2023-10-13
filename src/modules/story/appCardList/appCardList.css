@@ -1,1 +1,11 @@
 @import 'themed/card';
+
+c-paginator {
+  display: block;
+  padding: 1rem 2rem;
+}
+
+c-paginator::part(pageNumber) {
+  font-size: 1.5rem;
+  margin: 0 0.25rem;
+}
