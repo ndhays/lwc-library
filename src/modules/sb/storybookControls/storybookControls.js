@@ -196,7 +196,7 @@ export default class StorybookControls extends LightningElement {
     return Object.keys(css).map(prop => ({
       name: prop,
       description: css[prop],
-      toggled: !!isToggled.includes(prop)
+      toggled: this.classes[prop] !== undefined ? this.classes[prop] : !!isToggled.includes(prop)
     }));
   }
 
