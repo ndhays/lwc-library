@@ -25,7 +25,7 @@ function copyFolderRecursiveSync(source, target, ignoreRoot) {
   }
 }
 
-const BASE_PATH = './dist/c/';
+const BASE_PATH = 'node_modules/lwc-library/dist/c/';
 
 const REQUIRED_COMPONENTS = ['stylesShared'];
 
