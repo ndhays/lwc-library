@@ -1,4 +1,4 @@
-[![NPM version][npm-image]][npm-url] [![Downloads][npm-downloads-image]][npm-url]
+[![lwc-library](https://img.shields.io/npm/v/lwc-library.svg 'A badge that links to the lwc-library Web Component Library on NPM.JS')](https://www.npmjs.com/package/lwc-library)
 
 # Usage
 
@@ -14,7 +14,7 @@ This copies over the component **along with required shared components**.
 ## List of Required Components
 - `stylesShared` (required)
   
-Use `--all` or `-a` option to copy over all components:
+Use `--all` or `-a` option to copy over all components.
 ```bash
 npx lwc-library --all <destination-path>
 ```
