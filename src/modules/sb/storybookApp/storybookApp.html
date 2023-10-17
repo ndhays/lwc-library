@@ -31,13 +31,13 @@
         </svg>
       </button>
       <label class="text-white font-bold" for="themeselect">Theme:</label>
-      <select class="text-sm mr-4 text-white bg-gray-800 border-gray-600 border rounded p-1 m-2"
+      <select aria-label="Select a theme" class="text-sm mr-4 text-white bg-gray-800 border-gray-600 border rounded p-1 m-2"
         value={selectedTheme} onchange={handleApplyTheme}>
         <template for:each={themes} for:item="theme">
           <option key={theme} value={theme}>{theme}</option>
         </template>
       </select>
-      <a class="inline-block" href="https://github.com/ndhays/lwc-library" target="_blank">
+      <a class="inline-block" href="https://github.com/ndhays/lwc-library" target="_blank" aria-label="Link to Github Repo">
         <c-icon class="text-slate-100 h-5 translate-y-1 inline-block"></c-icon>
       </a>
     </div>
@@ -95,7 +95,7 @@
 
       <!-- TOGGLE BUTTON caret left / right -->
       <button lwc:ref="toggle" class="absolute -top-2 -right-2 z-10 toggle-button cursor-pointer bg-gray-800 rounded-full border-solid border-2 border-gray-200 flex items-center justify-center h-6 w-6"
-        onclick={handleToggleComponentList}>
+        onclick={handleToggleComponentList} title="Toggle component list open/closed">
         <svg class="h-4 w-4 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

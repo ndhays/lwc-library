@@ -1,25 +1,25 @@
 :host(.neutral) {
-  --badge--background-color: #6c757d;
-  --badge--border: 1px solid #6c757d;
-  --badge--color: #fff;
+  --badge--background-color: #929AA0;
+  --badge--border: 1px solid #929AA0;
+  --badge--color: #000;
 }
 
 :host(.info) {
-  --badge--background-color: #17a2b8;
-  --badge--border: 1px solid #17a2b8;
-  --badge--color: #fff;
+  --badge--background-color: #1ABCD5;
+  --badge--border: 1px solid #1ABCD5;
+  --badge--color: #000;
 }
 
 :host(.positive) {
-  --badge--background-color: #28a745;
-  --badge--border: 1px solid #28a745;
-  --badge--color: #fff;
+  --badge--background-color: #30C553;
+  --badge--border: 1px solid #30C553;
+  --badge--color: #000;
 }
 
 :host(.negative) {
-  --badge--background-color: #dc3545;
-  --badge--border: 1px solid #dc3545;
-  --badge--color: #fff;
+  --badge--background-color: #E7737F;
+  --badge--border: 1px solid #E7737F;
+  --badge--color: #000;
 }
 
 :host(.badge-xs) {
