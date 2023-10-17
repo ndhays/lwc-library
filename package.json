@@ -1,5 +1,5 @@
 {
-  "name": "lwr",
+  "name": "lwc-library",
   "version": "0.0.1",
   "license": "MIT",
   "private": true,
@@ -14,11 +14,13 @@
     "dev:compat": "lwr dev --mode compat",
     "build": "lwr build --clean",
     "build:prod-compat": "lwr build --clean --mode prod-compat",
+    "prepublish": "mkdir dist && cp -r ./src/modules/c ./dist/",
     "start": "lwr start",
     "stage": "yarn build && yarn start",
     "stage:prod-compat": "yarn build:prod-compat && yarn start",
     "tailwind": "tailwindcss -i ./tailwind.css -o ./src/modules/sb/storybookStyles/tailwind.css"
   },
+  "bin": "./bin.cjs",
   "dependencies": {
     "lwc": "3.0.0",
     "lwr": "0.10.2"

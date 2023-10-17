@@ -1,4 +1,31 @@
-# New Component Recipe
+[![NPM version][npm-image]][npm-url] [![Downloads][npm-downloads-image]][npm-url]
+
+# Usage
+
+Until Salesforce integrates Node library support, the easiest way to use library components is just to copy them directly.  
+  
+This can be done easily with the following command:
+```bash
+npx lwc-library <component-name> <destination-path>
+```
+  
+This copies over the component **along with required shared components**:
+- `stylesShared` (required)
+
+A wildcard **\*** can be used to copy over all components:
+```bash
+npx lwc-library * <destination-path>
+```
+
+---
+
+# Contribution Guidelines
+
+The main purpose of this library is to simplify components, ensure they are fully accessible, have a singular purpose. They are meant to be **extensible** rather than covering all use cases.  
+
+This is a major work-in-progress, but here is a general guide that outlines questions to ask:
+
+## New Component Recipe
 
 - Accessibility First
   - What will never change about the component?
