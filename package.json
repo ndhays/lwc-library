@@ -1,6 +1,6 @@
 {
   "name": "lwc-library",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -21,7 +21,11 @@
   },
   "bin": "./bin.cjs",
   "dependencies": {
-    "lwc": "3.0.0"
+  },
+  "peerDependencies": {
+    "lwc": "3.0.0",
+    "lwr": "0.10.2",
+    "yargs": "^17.7.2"
   },
   "engines": {
     "node": ">=16.0.0"
@@ -31,7 +35,6 @@
   },
   "devDependencies": {
     "@flydotio/dockerfile": "^0.4.8",
-    "lwr": "0.10.2",
     "tailwindcss": "^3.3.3"
   }
 }
