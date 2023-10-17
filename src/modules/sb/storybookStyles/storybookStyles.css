@@ -3,7 +3,7 @@
 @import './tailwind.css';
 
 :host {
-  --sb-outline: 0.125rem solid var(--color-focus, magenta);
+  --sb-outline: 0.125rem solid var(--color-focus, #9E009E);
   --spacing-small: 0.75rem;
   --spacing-medium: 1rem;
   --spacing-large: 1.5rem;
@@ -68,6 +68,6 @@ button {
 
 select:focus-visible,
 button:focus-visible {
-  outline: 0.125rem solid var(--color-focus, magenta);
+  outline: 0.125rem solid var(--color-focus, #9E009E);
   outline-offset: -0.125rem;
 }

@@ -17,7 +17,7 @@
 }
 
 .card .note {
-  color: magenta;
+  color: #9E009E;
 }
 
 .card h1 {
@@ -42,18 +42,18 @@
 }
 
 .card a:not(.link) {
-  color: rgb(255, 0, 255);
+  color: #9E009E;
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 .card a:not(.link):hover {
-  color: rgb(164, 21, 164);
+  color: rgb(129, 27, 129);
   text-decoration: underline;
 }
 
 .card button:not(.button) {
-  background-color: magenta;
+  background-color: #9E009E;
   border-radius: 0.25rem;
   box-shadow: 0px 0.0625rem 0.625rem 0.1875rem rgba(0,0,0,0.15);
   color: white;

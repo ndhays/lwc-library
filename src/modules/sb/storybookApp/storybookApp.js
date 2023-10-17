@@ -29,17 +29,18 @@ export default class StorybookApp extends LightningElement {
         list = { name: category, components: [] };
         allCmp.push(list);
       }
+      const allVariants = Object.keys(cmp.variants || {}).filter(variant => variant !== 'Default');
       // NOTE: use 'key' not cmp.name bc prod minimization makes class 'name' different
       list.components.push({
         title: cmp.title,
         name: key,
-        variants: Object.keys(cmp.variants || {}).filter(variant => variant !== 'Default').map(variant => ({
+        variants: allVariants.map(variant => ({
           name: variant,
           isCustom: !!variant.match('Custom'),
           isSelected: (key === this.selectedComponent) && (variant === this.selectedVariant),
         })),
         isSelected: key === this.selectedComponent,
-        isOpen: this.isOpen[key] || key === this.selectedComponent,
+        isOpen: allVariants.length ? (this.isOpen[key] || key === this.selectedComponent) : false,
       });
       return allCmp;
     }, [])

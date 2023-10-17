@@ -1,6 +1,6 @@
 <template>
 
-  <div class="tablist">
+  <div class="tablist" role="tablist">
     <div class="tablist-instructions" id="instructions">
       {insructions}
     </div>
@@ -24,6 +24,8 @@
         </li>
       </template>
     </ul>
-    <slot onslotchange={handleSlotChange}></slot>
+    <div>
+      <slot onslotchange={handleSlotChange}></slot>
+    </div>
   </div>
 </template>

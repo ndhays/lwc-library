@@ -52,10 +52,11 @@
           <div key={category.name} class="border-t p-2">
             <h2 class="pl-2 font-bold">{category.name}</h2>
             <template for:each={category.components} for:item="cmp">
-              <div key={cmp.name} aria-expanded={cmp.isOpen}>
+              <div key={cmp.name}>
                 <button
                   class="flex items-center text-sm px-2 py-0.5 m-0 w-full"
                   data-name={cmp.name}
+                  aria-expanded={cmp.isOpen}
                   data-is-selected-cmp={cmp.isSelected}
                   data-selected-variant={selectedVariant}
                   onclick={handleToggleComponent}>
@@ -115,6 +116,7 @@
         </template>
         <template lwc:else>
           <c-tablist lwc:ref="tabs" onchange={handleTabChange}>
+            <div slot="tab">Documentation</div>
             <c-tab label="Documentation">
               <lwc:component lwc:is={themeComponent} lwc:ref="documentation">
                 <sb-storybook-component lwc:ref="docs"
