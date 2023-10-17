@@ -14,11 +14,16 @@ This copies over the component **along with required shared components**.
 ## List of Required Components
 - `stylesShared` (required)
   
-Use `--ignore` or `-i` to ignore shared components.  
 Use `--all` or `-a` option to copy over all components:
 ```bash
 npx lwc-library --all <destination-path>
 ```
+
+Use `--ignore` or `-i` to ignore shared components.  
+```bash
+npx lwc-library --ignore -c accordion (copy just the accordion - this will break!)
+```
+
 
 ## All Options
 - `--component` or `-c` to specify a component
