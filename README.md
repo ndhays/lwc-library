@@ -9,13 +9,23 @@ This can be done easily with the following command:
 npx lwc-library <component-name> <destination-path>
 ```
   
-This copies over the component **along with required shared components**:
-- `stylesShared` (required)
+This copies over the component **along with required shared components**.
 
-A wildcard **\*** can be used to copy over all components:
+## List of Required Components
+- `stylesShared` (required)
+  
+Use `--ignore` or `-i` to ignore shared components.  
+Use `--all` or `-a` option to copy over all components:
 ```bash
-npx lwc-library * <destination-path>
+npx lwc-library --all <destination-path>
 ```
+
+## All Options
+- `--component` or `-c` to specify a component
+- `--target` or `-t` to specify a destination path
+- `--all` or `-a` to copy all components
+- `--ignore` or `-i` to ignore shared components
+- `--help` or `-h` to see all options
 
 ---
 
@@ -23,7 +33,13 @@ npx lwc-library * <destination-path>
 
 The main purpose of this library is to simplify components, ensure they are fully accessible, have a singular purpose. They are meant to be **extensible** rather than covering all use cases.  
 
-This is a major work-in-progress, but here is a general guide that outlines questions to ask:
+## Install
+Trying out bun.
+```bash
+bun install
+```  
+
+This package is a major work-in-progress, but here is a general guide that outlines questions to ask:
 
 ## New Component Recipe
 
